@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import MainSection from '../sections/MainSection';
 import SidebarSection from '../sections/SidebarSection';
-import { withRouter} from 'react-router-dom';
-import ErrorBoundary from '../errors/ErrorBoundary';
+import { withRouter } from 'react-router-dom';
+import ErrorBoundary from '../../errors/ErrorBoundary';
 import PropTypes from 'prop-types';
 
-
-class MainRoute extends Component {
+class NoteRoute extends Component {
     render(){
-        return (
+        const store = {
+            notes: this.props.store.notes.filter(note => this.props.history.location.pathname.includes(note.id) ),
+            folders: this.props.store.folders
+        }
+        return(
             <div className="App">
                 <ErrorBoundary message="Sidebar Section Error">
                     <SidebarSection
-                        store={this.props.store}
+                        store={store}
                     />
                 </ErrorBoundary>
                 <ErrorBoundary message="Main Section Error">
                     <MainSection 
-                        store={this.props.store}
+                        store={store}
                     />
                 </ErrorBoundary>
             </div>
@@ -26,8 +29,8 @@ class MainRoute extends Component {
     }
 }
 
-MainRoute.propTypes = {
-    store:PropTypes.object.isRequired
+NoteRoute.propTypes = {
+    store: PropTypes.object.isRequired
 }
 
-export default withRouter(MainRoute);
+export default withRouter(NoteRoute);
