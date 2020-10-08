@@ -1,50 +1,88 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { Route, Link } from "react-router-dom"
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import NoteListNav from '../NotelistNav/NoteListNav';
-import NotePageNav from '../NotePageNav/NotePageNav';
-import NoteListMain from '../'
+import FolderRoute from './components/routes/FolderRoute';
+import MainRoute from './components/routes/MainRoute';
+import NoteRoute from './components/routes/NoteRoute';
+import NotFoundRoute from './components/routes/NotFoundRoute';
+import AddFolder from './components/AddFolder';
+import AddNote from './components/AddNote';
+import HeaderSection from './components/sections/HeaderSection';
+import DefaultContext from './components/context/DefaultContext';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-        
-//       </header>
-//     </div>
-//   );
-// }
+class App extends Component {
+    static contextType = DefaultContext;
 
-export default function App(){
-  return(
-    <Router>
-      <header>
-        <nav>
-          <div>
-            <ul>
-              <li>example 1</li>
-              <li>example 2</li>
-              <li>example 3</li>
-              <li>example 4</li>
-            {/*folder components will go here*/}
-            </ul>
-          </div>
-        </nav>
-        <div>
-          <h1>Noteful {/*href that sets the webpage back to home*/}</h1>
-        </div>
-      </header>
+    state = {
+        store:{
+            folders:[],
+            notes:[]
+        },
+        url:'https://localhost:9090'
+    }
+    updateStore = () => {
+        this.getFolders();
+        this.getNotes();
+    }
+    getFolders = () => {
+        fetch(`${this.state.url}/folders`)
+          .then( r => r.json())
+          .then( r =>{
+              this.setState({
+                  store:{
+                      folders:r,
+                      notes:this.state.store.notes
+                  }
+              });
+          })
+          .catch( e =>{
+              throw new Error(`Error retrieving folders: ${e.message}`);
+          });
+    }
 
-      <main>
-        {/* path: the path of the route. Here, we use / to define the path of the home page. */}
-        {/* render: will display the content whenever the route is reached. Here, we'll render a welcome message to the user. */}
-    <Route path="/" render={() => {/*welcome page here */}} />
-      </main>
-    </Router>
-  );
+    componentDidMount(){
+        this.updateStore();
+    }
+    render(){
+        const contextValue = {
+        updateStore: this.updateStore,
+        url:this.state.url
+        }
+        return (
+            <DefaultContext.Provider value={contextValue}>
+                <BrowserRouter >
+                    <HeaderSection />
+                  <Switch>
+                      <Route
+                        exact path='/'
+                        render={()=><MainRoute store={this.state.store}/>}
+                    />
+                    <Route
+                        path='/folder/:folderId'
+                        render={()=><FolderRoute store={this.state.store}/>}
+                    />
+                    <Route 
+                        path='/note/:id'
+                        render={()=><NoteRoute store={this.state.store}/>}
+                    />
+                    <Route
+                        path='/add-folder/'
+                        render={()=><AddFolder store={this.state.store}/>}
+                    />
+                    <Route
+                        path='/add-note/'
+                        render={()=><AddNote store={this.state.store}/>}
+                    />
+                    <Route
+                        render={()=><NotFoundRoute />}
+                    />
+                 </Switch>
+                </BrowserRouter>
+            </DefaultContext.Provider>
+
+
+        );
+    }
 }
 
-
-
-
+export default App;
