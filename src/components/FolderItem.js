@@ -38,6 +38,19 @@ class FolderItem extends Component {
                     to={`/folder/${id}`}>
                     {name}
                 </Link>
-         )
+                <button
+                 className="folder--ite--delete"
+                 onClick={() => this.getRidOfMe()}>delete
+                </button>
+            </li>
+                
+         );
     }
 }
+FolderItem.propTypes={
+    id:PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    store:PropTypes.object.isRequired
+}
+
+export default withRouter(FolderItem);
