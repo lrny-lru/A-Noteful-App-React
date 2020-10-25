@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundRoute component renders NotFoundRoute by default 1`] = `
+<div
+  class="error"
+>
+  <div
+    class="error--spacer"
+  />
+  <h2
+    class="error--message"
+  >
+    404 Not Found
+  </h2>
+</div>
+`;

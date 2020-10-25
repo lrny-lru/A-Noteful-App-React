@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary component renders an ErrorBoundary by default 1`] = `""`;
+
+exports[`ErrorBoundary component renders an error message with message when in props 1`] = `null`;

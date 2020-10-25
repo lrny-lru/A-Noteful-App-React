@@ -1,0 +1,309 @@
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+a {
+  color: #000;
+}
+header {
+  text-align: center;
+  min-height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+}
+
+header a {
+  text-decoration: none;
+  text-align: left;
+}
+
+header a h1 {
+  font-size: 4rem;
+}
+
+
+#root {
+  min-height: 100%;
+  flex: 1;
+}
+
+
+
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.section--row {
+  display: flex;
+  flex-flow: columnyy;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+.header--spacer {
+  flex:1;
+}
+
+.header--title {
+  flex:3;
+}
+
+.error {
+  display: flex;
+  margin: 2rem 0;
+}
+.error--spacer{
+  flex:1;
+}
+.error--message{
+  flex:3;
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+.section--sidebar {
+  flex:1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  min-height: 100%;
+  padding: 1.5rem 0 0 0;
+}
+.section--sidebar ul{
+  width: 100%;
+  padding: 0px;
+  margin:0px;
+  list-style: none;
+}
+li.folder--item {
+  width: 100%;
+  flex: 0 1;
+  padding: 1.5rem;
+  border: 2px solid #000;
+  position: relative;
+}
+li.folder--item a {
+  font-size: 1.5rem;
+}
+.button--back {
+  width: calc(100% - 1rem);
+  font-size: 1.5rem;
+  background: none;
+  box-shadow: none;
+  border: 2px solid #000;
+  margin:0 0.5rem;
+  padding:1.5rem;
+  cursor: pointer;
+}
+.folder--item--add {
+  width: calc(100% - 1rem);
+  font-size: 1.5rem;
+  background: none;
+  box-shadow: none;
+  border: 2px solid #000;
+  margin:0.5rem;
+  padding:1.5rem;
+  cursor: pointer;
+}
+.folder--item--checked a{
+  color: #fff;
+}
+.folder--item--checked {
+  background-color: #06e;
+  border: 2px solid #06e;
+}
+.section--sidebar h3 {
+  width: 100%;
+  text-align: right;
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+li.folder--item button.folder--item--delete {
+  position: absolute;
+  top: 10px;
+  right:20px;
+  border:none;
+  background:none;
+  font-size:0;
+  cursor: pointer;
+}
+li.folder--item button.folder--item--delete::after {
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width:25px;
+  height: 25px;
+  border:none;
+  background-image: url(./images/bin.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+
+.section--main {
+  flex:3;
+  padding: 1.5rem;
+}
+.section--main ul{
+  width: 100%;
+  padding: 0px;
+  margin:0px;
+  list-style: none;
+}
+li.note--item {
+  width: 100%;
+  flex: 0 1;
+  padding: 1.5rem;
+  margin: 0 0 1rem 0;
+  border: 2px solid #000;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+main > .section--row {
+  justify-content: flex-start;
+}
+.note--item--link {
+  width: 100%;
+  font-size: 2rem;
+}
+.note--item--modified {
+  width: 100%;
+  font-size: 1.25rem;
+  margin: 0;
+  flex: 1
+}
+.note--item--delete {
+  flex: 0 0 auto;
+  padding: 1rem;
+  margin: 0.5rem 1rem;
+  background: none;
+  box-shadow: none;
+  border: 2px solid #000;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.note--item--add {
+  font-size: 1.5rem;
+  min-width: 275px;
+  background: none;
+  box-shadow: none;
+  border: 2px solid #000;
+  padding:1rem;
+  cursor: pointer;
+}
+.note--item--content {
+  text-align: left;
+  margin: 0.5rem;
+}
+
+
+
+.add--form{
+  display:flex;
+  flex-flow: column;
+}
+
+.add--form--field{
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+}
+.add--form--field input, .add--form--field textarea, .add--form--field select{
+  width: 100%;
+  max-width: 850px;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  border: 2px solid #000;
+  background:none;
+}
+.add--form--field label {
+  font-size: 1.25rem;
+}
+.add--form--field select {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.add--form--field button{
+  width: 100%;
+  max-width:450px;
+  font-size:1.25rem;
+  padding:1rem;
+  background:none;
+  box-shadow:none;
+  outline: none;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+
+@media all and (min-width:800px) {
+  .App {
+    flex-flow: row;
+  }
+}
