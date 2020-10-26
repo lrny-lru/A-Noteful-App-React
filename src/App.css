@@ -9,17 +9,38 @@ body {
   flex-flow: column;
 }
 
-a {
-  color: #000;
+a.folder--item--add {
+  color: #fcf3ee ;
+ 
+ 
+
+}
+a.note--item--add{
+  color:#fcf3ee ;
+  background-color:  #515575 ;
+  border-bottom: solod 3px #e56b6f ;
+}
+button.submit-button{
+  width: fit-content ;
+  background-color: #94617b ;
+  color: #fcf3ee ;
+  font-family:
+}
+section{
+  background-color:#6d597a ;
+  border-color: #E56B6F ;
 }
 header {
+  background-color:#355070 ;
   text-align: center;
   min-height: 10vw;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 4px solid #CD6873 ;
+  border-top: 2px solid #B56576 ;
+
 }
 
 header a {

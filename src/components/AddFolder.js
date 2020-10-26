@@ -51,7 +51,7 @@ class AddFolder extends Component {
                                 <label htmlFor="folderName">Folder name:</label>
                                 <input type="text" id="folderName" name="folderName" required />
                             </div>
-                            <button type="submit">Submit</button>
+                            <button className="submit-button" type="submit">Submit</button>
                         </form>
                     </main>
                 </ErrorBoundary>
