@@ -22,7 +22,7 @@ class AddFolder extends Component {
             headers:{
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data);
+            body: JSON.stringify(data),
         })
         .then(r =>{
             this.context.updateStore();

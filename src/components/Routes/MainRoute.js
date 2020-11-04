@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MainSection from '../sections/MainSection';
 import SidebarSection from '../sections/SidebarSection';
 import { withRouter} from 'react-router-dom';
-import ErrorBoundary from '../errors/ErrorBoundary';
+import ErrorBoundary from ' ./src/errors/ErrorBoundary';
 import PropTypes from 'prop-types';
 
 

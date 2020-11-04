@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import FolderRoute from './components/routes/FolderRoute';
-import MainRoute from './components/routes/MainRoute';
-import NoteRoute from './components/routes/NoteRoute';
-import NotFoundRoute from './components/routes/NotFoundRoute';
+import FolderRoute from './components/Routes/FolderRoute';
+import MainRoute from './components/Routes/MainRoute';
+import NoteRoute from './components/Routes/NoteRoute';
+import NotFoundRoute from './components/Routes/NotFoundRoute';
 import AddFolder from './components/AddFolder';
 import AddNote from './components/AddNote';
 import HeaderSection from './components/sections/HeaderSection';

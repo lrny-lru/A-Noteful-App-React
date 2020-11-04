@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SidebarSection from './sections/SidebarSection';
-import DefaultContext from './contect/DefaultContext';
+import DefaultContext from './context/DefaultContext';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from '../errors/ErrorBoundary';
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 class AddNote extends Component {
     static contextType = DefaultContext;
     handleOnSubmit = (form) => {
-        let aForm = new FormData(form);
+        let f = new FormData(form);
         let data ={
             name: f.get("noteName"),
             modified: new Date().toISOString(),
@@ -24,7 +24,7 @@ class AddNote extends Component {
             headers:{
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data);
+            body: JSON.stringify(data),
         })
         .then( r =>{
             this.context.updateStore();

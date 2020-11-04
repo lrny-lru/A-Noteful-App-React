@@ -17,3 +17,5 @@ class HeaderSection extends Component {
         );
     }
 }
+
+export default withRouter(HeaderSection);
