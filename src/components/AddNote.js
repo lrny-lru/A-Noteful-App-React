@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SidebarSection from './sections/SidebarSection';
+import SidebarSection from './sections/SideBarSection';
 import DefaultContext from './context/DefaultContext';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from '../errors/ErrorBoundary';

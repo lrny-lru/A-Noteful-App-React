@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainSection from '../sections/MainSection';
-import SidebarSection from '../sections/SidebarSection';
+import SidebarSection from '../sections/SideBarSection';
 import { withRouter } from 'react-router-dom';
 import ErrorBoundary from '../../errors/ErrorBoundary';
 import PropTypes from 'prop-types';
