@@ -19,7 +19,7 @@ class App extends Component {
       folders: [],
       notes: []
     },
-    url: 'http://localhost:9090'
+    url: 'https://quiet-plains-10352.herokuapp.com'
   }
   updateStore = () => {
     this.getFolders();
